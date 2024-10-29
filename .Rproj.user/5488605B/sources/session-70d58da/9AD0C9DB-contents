@@ -1,0 +1,57 @@
+install.packages("data.table")
+library(data.table)
+?data.table
+mtcars
+?mtcars
+class(mtcars)
+DTmtcars<-as.data.table(mtcars)
+class(DTmtcars)
+DTmtcars[mpg>15,.(Media_hp=mean(hp),
+                  Media_wt=mean(wt)),
+         by=cyl]
+
+"creando na tabla"
+DT<-data.table(A=1:5,B=c("a","b","c"),C=rnorm(5),D=FALSE)
+class(DT)
+DT[,.(A,B)]
+DT[,c("A","B")]
+DT[,.N]
+DT[,.N,by=B]
+
+a<-DT[,.N,by=.(A,B)][order(B)]
+a[order(B)]
+
+
+
+"CREANDO LA BASE  DE DATOS IRIS"
+?iris
+class(iris)
+DTiris<-as.data.table(iris)
+class(DTiris)
+DTiris
+
+
+
+
+
+
+
+
+DTiris <- as.data.table(iris)
+medias <- DTiris[, .(
+  Media_Sepal.Length = mean(Sepal.Length),
+  Media_Sepal.Width = mean(Sepal.Width),
+  Media_Petal.Length = mean(Petal.Length),
+  Media_Petal.Width = mean(Petal.Width)
+), by = Species]
+
+print(medias)
+
+
+
+
+
+
+
+
+
